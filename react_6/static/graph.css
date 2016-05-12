@@ -1,0 +1,12 @@
+.y-axis .tick line,
+.y-axis .domain,
+.x-axis .tick line,
+.x-axis .domain {
+	fill: transparent;
+	stroke: black;
+	stroke-width: 1px;
+}
+
+.x-axis .tick text {
+	text-transform: rotate(90);
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script type="text/babel">
+      var data = [{id:1, name:'Jam'}, {id:2, name:'Ham'}, {id:3, name:'Sam'}]
+
+      var HelloWorld = React.createClass({
+        render: function() {
+          return (
+            <table>
+            {
+              this.props.data.map(function(d) {
+                return ( 
+                  <tr>
+                    <td>{d.id}</td>
+                    <td>{d.name}</td>
+                  </tr>
+                )
+              })
+            }
+            </table>
+          )
+        }
+      });
+
+      ReactDOM.render(
+          <HelloWorld data={data} />,
+
+          document.getElementById('content')
+      );
+    </script>
+  </body>
+</html>

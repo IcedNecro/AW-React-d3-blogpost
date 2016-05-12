@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script type="text/babel">
+      var ItemForm = React.createClass({
+        getInitialState : function(){               
+          this.data = {}
+          return {title: '', arb:1};
+        },
+        createItem: function() {
+          console.log(this.state);
+        },
+        setItemName: function(event) {            
+          var title = event.target.value;
+          this.setState({title: title});
+        },
+        render: function() {
+          var title = this.state.title;
+
+          return (
+            <div className='col-md-offset-2 col-md-8'>
+              <div>
+                <label for='item-name'>Item Name</label>
+                <input value={title} id='item-name' onChange={this.setItemName} type='text' />
+                <button onClick={this.createItem}>Submit</button>
+              </div>
+            </div>
+          )
+        },
+      });
+
+      ReactDOM.render(
+        <ItemForm />,
+        document.getElementById('content')
+      );
+    </script>
+  </body>
+</html>
